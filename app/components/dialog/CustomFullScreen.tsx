@@ -4,7 +4,7 @@ export const CustomFullScreen = ({
   children,
   isOpened,
   parentClassName = "",
-  childClassName = "overflow-none",
+  childClassName = "overflow-none relative",
   closeAction = undefined,
 }: {
   children: Array<React.ReactElement>;
@@ -16,11 +16,9 @@ export const CustomFullScreen = ({
   return (
     <div hidden={!isOpened} className={parentClassName}>
       <div
-        className="fixed left-0 right-0 top-0 bottom-0 z-[9999] justify-center flex bg-[0008]"
+        className="fixed left-0 right-0 top-0 bottom-0 z-[9999] justify-center flex bg-[#0008]"
         onClick={(event) => {
-          if (event.target === event.currentTarget) {
-            closeAction && closeAction();
-          }
+          closeAction && closeAction();
         }}
       >
         {/** ×ボタン */}
